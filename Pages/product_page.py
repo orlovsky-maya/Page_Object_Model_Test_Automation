@@ -5,6 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class ProductPage(BasePage):
+
+    """Adding a product to basket flow"""
     def add_product_to_basket(self):
         self.should_be_basket_button()
         basket = WebDriverWait(self.browser, self.timeout).until(EC.visibility_of_element_located(ProductPageLocators.
