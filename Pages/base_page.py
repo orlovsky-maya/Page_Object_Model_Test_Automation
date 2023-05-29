@@ -12,6 +12,11 @@ class BasePage:
         self.url = url
         self.timeout = timeout
 
+    def go_to_basket(self):
+        basket_button = WebDriverWait(self.browser, self.timeout).until(EC.presence_of_element_located
+                                                        (BasePageLocators.BASKET_BUTTON))
+        basket_button.click()
+
     def go_to_login_page(self):
         login_link = WebDriverWait(self.browser, self.timeout).until(EC.presence_of_element_located
                                                                      (BasePageLocators.LOGIN_LINK))
@@ -42,6 +47,9 @@ class BasePage:
 
     def open(self):
         self.browser.get(self.url)
+
+    def should_be_basket_button(self):
+        assert self.is_element_present(BasePageLocators.BASKET_BUTTON), "The basket button is not presented"
 
     def should_be_login_link(self):
         assert self.is_element_present(BasePageLocators.LOGIN_LINK), "Login link is not presented"
