@@ -1,7 +1,7 @@
 # My environment: Ubuntu 22.04.2 LTS, 64-bit
 # Chromium Version 113.0.5672.63 (Official Build) snap (64-bit)
 # Firefox 113.0.1 (64-bit)
-# In order to launch the script need to activate python environment and enter command:./run_pytest.sh
+
 
 import pytest
 from selenium import webdriver

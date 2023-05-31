@@ -1,13 +1,11 @@
 from Pages.base_page import BasePage
-from locators import ProductPageLocators
+from Pages.locators import ProductPageLocators
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from Pages.basket_page import BasketPage
 
 
 class ProductPage(BasePage):
 
-    """Adding a product to basket flow"""
     def add_product_to_basket(self):
         self.should_be_add_to_basket_button()
         add_to_basket_button = WebDriverWait(self.browser, self.timeout).until(EC.visibility_of_element_located
@@ -65,6 +63,7 @@ class ProductPage(BasePage):
     # Negative tests about product success_messages
 
     def should_not_be_product_message_after_adding_product_to_basket(self):
+        self.should_be_product_message()
         assert self.is_not_element_present(ProductPageLocators.MESSAGE_PRODUCT_ADDED_TO_BASKET), "Success message " \
                                                                                                  "about " \
                                                                                                  "added product is " \

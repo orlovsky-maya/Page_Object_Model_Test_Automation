@@ -3,18 +3,19 @@ from selenium.common.exceptions import NoAlertPresentException
 import math
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from locators import BasePageLocators
+from Pages.locators import BasePageLocators
 
 
 class BasePage:
-    def __init__(self, browser, url, timeout=50):
+    def __init__(self, browser, url, timeout=30, timeout_test_negative=4):
         self.browser = browser
         self.url = url
         self.timeout = timeout
+        self.timeout_test_negative = timeout_test_negative
 
     def go_to_basket(self):
         basket_button = WebDriverWait(self.browser, self.timeout).until(EC.presence_of_element_located
-                                                        (BasePageLocators.BASKET_BUTTON))
+                                                                        (BasePageLocators.BASKET_BUTTON))
         basket_button.click()
 
     def go_to_login_page(self):
@@ -22,9 +23,9 @@ class BasePage:
                                                                      (BasePageLocators.LOGIN_LINK))
         login_link.click()
 
-    def is_disappeared(self, selector, timeout=4):
+    def is_disappeared(self, selector):
         try:
-            WebDriverWait(self.browser, timeout).until_not(EC.presence_of_element_located(selector))
+            WebDriverWait(self.browser, self.timeout_test_negative).until_not(EC.presence_of_element_located(selector))
         except TimeoutException:
             return False
 
@@ -37,9 +38,9 @@ class BasePage:
             return False
         return True
 
-    def is_not_element_present(self, selector, timeout=4):
+    def is_not_element_present(self, selector):
         try:
-            WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located(selector))
+            WebDriverWait(self.browser, self.timeout_test_negative).until(EC.presence_of_element_located(selector))
         except TimeoutException:
             return True
 
@@ -47,6 +48,10 @@ class BasePage:
 
     def open(self):
         self.browser.get(self.url)
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                    " probably unauthorised user"
 
     def should_be_basket_button(self):
         assert self.is_element_present(BasePageLocators.BASKET_BUTTON), "The basket button is not presented"
