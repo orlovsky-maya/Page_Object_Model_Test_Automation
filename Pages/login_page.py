@@ -5,6 +5,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class LoginPage(BasePage):
+    LINK = "http://selenium1py.pythonanywhere.com/accounts/login/"
+
+    def __init__(self, browser):
+        super().__init__(browser, self.LINK)
+
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
