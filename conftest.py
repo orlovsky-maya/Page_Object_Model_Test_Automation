@@ -6,6 +6,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from Utilities.Logger import Logger
 
 
 def pytest_addoption(parser):
@@ -43,3 +44,9 @@ def browser(request):
     yield browser
     print("\nquit browser..")
     browser.quit()
+
+
+@pytest.fixture(autouse=True)
+def logger(request):
+    logger = Logger(request.config.rootdir)
+    return logger
