@@ -1,7 +1,8 @@
 from Pages.base_page import BasePage
-from Pages.basket_page import BasketPage
 
 
 class MainPage(BasePage):
-    def __init__(self, *args, **kwargs):
-        super(MainPage, self).__init__(*args, **kwargs)
+    LINK = "http://selenium1py.pythonanywhere.com/"
+
+    def __init__(self, browser):
+        super().__init__(browser, self.LINK)
