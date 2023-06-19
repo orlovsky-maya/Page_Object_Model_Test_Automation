@@ -14,8 +14,6 @@ def pytest_addoption(parser):
                      help="Choose language, example: fr, ru or es")
     parser.addoption('--browser_name', action='store', default=None,
                      help="Choose browser: chrome or firefox")
-    parser.addoption('--user_data_dir', action='store', default=None,
-                     help="Enter user directory for browser")
 
 
 @pytest.fixture(scope="function")
@@ -24,15 +22,11 @@ def browser(request):
 
     browser_name = request.config.getoption("browser_name")
 
-    user_data_dir = request.config.getoption('user_data_dir')
-
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
         chrome_options = Options()
         chrome_options.add_experimental_option('prefs', {'intl.accept_languages': language})
         chrome_options.add_argument("--remote-debugging-port=9515")
-        if user_data_dir:
-            chrome_options.add_argument(f"--user-data-dir={user_data_dir}")
         browser = webdriver.Chrome(options=chrome_options)
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")

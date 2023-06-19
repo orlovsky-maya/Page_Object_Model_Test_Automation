@@ -28,7 +28,6 @@ class ProductPage(BasePage):
             self.should_be_product_msg()
             self.should_be_product_name_in_msg()
             self.should_be_price_msg()
-            time.sleep(3)
             self.should_be_product_price_in_msg()
 
     def should_be_product_msg(self):
