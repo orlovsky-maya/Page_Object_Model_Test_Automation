@@ -3,7 +3,7 @@ The repository contains my solutions for final task of Page Object part.
 
 [Task](https://stepik.org/lesson/201964/step/14?unit=176022)
 
-Test "Test Automation" course on Stepik educational platform.
+"Test Automation" course on Stepik educational platform.
 
 [Course](https://stepik.org/course/575/info)
 
