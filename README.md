@@ -1,15 +1,15 @@
 # Page Object Model 
 The repository contains my solutions for final task of Page Object part.
 
-[The link on task](https://stepik.org/lesson/201964/step/14?unit=176022)
+[Task](https://stepik.org/lesson/201964/step/14?unit=176022)
 
 Test "Test Automation" course on Stepik educational platform.
 
-[The link on course](https://stepik.org/course/575/info)
+[Course](https://stepik.org/course/575/info)
 
 
 ## Website under test:
-[The link of website](http://selenium1py.pythonanywhere.com/en-gb/)
+[Website](http://selenium1py.pythonanywhere.com/en-gb/)
 
 
 <p align="center">
