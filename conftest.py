@@ -40,7 +40,7 @@ def browser(request):
     browser.quit()
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture()
 def logger(request):
     logger = Logger(request.config.rootdir)
     return logger
