@@ -8,7 +8,7 @@ from Pages.product_page import ProductPage
 @pytest.fixture(scope="function")
 def user(browser):
     email = str(time.time()) + "@fakemail.org"
-    password = "Fg6L0R2FY"
+    password = "z7LtGBQCR"
     new_user = LoginPage(browser)
     new_user.open()
     new_user.go_to_login_page()
