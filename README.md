@@ -17,6 +17,11 @@ Test "Test Automation" course on Stepik educational platform.
 
 </p>
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/orlovsky-maya/Page_Object_Model_Test_Automation/main/Images/Website_1.png" alt="Website_1" height="400" width="800">
+
+</p>
+
 
 ## Results of run:
 
