@@ -160,5 +160,4 @@ cython_debug/
 #.idea/
 /.idea/
 /tmp/
-/run_pytest.sh
 /allure_test_results/
